@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "529146430088",
+    "project_id": "thedarji-222b2",
+    "storage_bucket": "thedarji-222b2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:529146430088:android:a42fb6b942b8a0acb5953d",
+        "android_client_info": {
+          "package_name": "com.example.darji"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "529146430088-uuc6sgk2nr2ae0dkfugeae2a94urrnac.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxo87GaDrB8Vj2ZVuuHUDE4KyBk8BXBY0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "529146430088-uuc6sgk2nr2ae0dkfugeae2a94urrnac.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
