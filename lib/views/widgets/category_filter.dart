@@ -36,7 +36,7 @@ Widget filter(BuildContext context) {
               child: Column(
                 children: [
                   Image.asset(
-                    'assets/images/img1.png',
+                    'assets/images/im1.jpeg',
                   ),
                   Text("Cars")
                 ],
@@ -54,7 +54,12 @@ Widget filter(BuildContext context) {
               width: 50,
               height: 50,
               child: Column(
-                children: [Image.asset('assets/images/img2.png'), Text("Home")],
+                children: [
+                  Image.asset(
+                    'assets/images/im1.jpeg',
+                  ),
+                  Text("Home")
+                ],
               ),
             ),
           ),
@@ -70,7 +75,9 @@ Widget filter(BuildContext context) {
               height: 50,
               child: Column(
                 children: [
-                  Image.asset('assets/images/img3.png'),
+                  Image.asset(
+                    'assets/images/im1.jpeg',
+                  ),
                   Text("Mobiles")
                 ],
               ),
@@ -88,7 +95,9 @@ Widget filter(BuildContext context) {
               height: 50,
               child: Column(
                 children: [
-                  Image.asset('assets/images/img9.png'),
+                  Image.asset(
+                    'assets/images/im1.jpeg',
+                  ),
                   Text("Books")
                 ],
               ),
@@ -106,7 +115,9 @@ Widget filter(BuildContext context) {
               height: 50,
               child: Column(
                 children: [
-                  Image.asset('assets/images/img5.png'),
+                  Image.asset(
+                    'assets/images/im1.jpeg',
+                  ),
                   Text("Bikes")
                 ],
               ),
@@ -124,7 +135,9 @@ Widget filter(BuildContext context) {
               height: 50,
               child: Column(
                 children: [
-                  Image.asset('assets/images/img10.png'),
+                  Image.asset(
+                    'assets/images/im1.jpeg',
+                  ),
                   Text("Sports")
                 ],
               ),

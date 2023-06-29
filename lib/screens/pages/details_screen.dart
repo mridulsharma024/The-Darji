@@ -264,10 +264,10 @@ class _DetailsState extends State<Details> {
               ),
             ),
             prefixIcon: Icon(
-              Icons.location_on,
+              Icons.note,
               color: color,
             ),
-            labelText: "Location/city",
+            labelText: "Short Description",
             labelStyle: TextStyle(color: ColorConst.primaryColor)
             //helperText: "Name can't be empty",
             ),

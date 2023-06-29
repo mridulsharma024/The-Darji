@@ -1,6 +1,6 @@
 class StreamConst {
   static String streamImageConst(int i) {
-    return 'assets/images/img$i.png';
+    return 'assets/images/im$i.jpeg';
   }
 
   static streamStringConst(int i) {
@@ -28,14 +28,22 @@ class StreamConst {
     }
   }
 
-  static const String stream1 = 'Kurta';
-  static const String stream2 = 'Three Piece Suit';
-  static const String stream3 = 'Two Piece Suit';
-  static const String stream4 = 'Coat';
-  static const String stream5 = 'Blazer';
-  static const String stream6 = 'Jacket';
-  static const String stream7 = 'Shirt';
-  static const String stream8 = 'Pant';
-  static const String stream9 = 'Formals';
-  static const String stream10 = 'Sports';
+  static const String stream1 = 'Cargo Pants';
+  static const String stream2 = 'Churidar';
+  static const String stream3 = 'Dhoti';
+  static const String stream4 = 'Jackets';
+  static const String stream5 = 'Kurtas';
+  static const String stream6 = 'Lowers';
+  static const String stream7 = 'Nehru Jacket';
+  static const String stream8 = 'Paithani Suit';
+  static const String stream9 = 'Pants';
+  static const String stream10 = 'Pyjamas';
+  static const String stream11 = 'Salwar';
+  static const String stream12 = 'Sherwani';
+  static const String stream13 = 'Shirts';
+  static const String stream14 = 'Shorts';
+  static const String stream15 = 'Suits';
+  static const String stream16 = 'T-Shirts';
+  static const String stream17 = 'Trousers';
+  static const String stream18 = 'Tuxedos';
 }

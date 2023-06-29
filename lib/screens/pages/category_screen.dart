@@ -35,10 +35,11 @@ class _CategoryScreenState extends State<CategoryScreen> {
                   child: CustomCardWidget1(
                     color: ColorConst.stream,
                     text: StreamConst.stream1,
-                    image: Image.asset(
-                      StreamConst.streamImageConst(1),
-                      width: 100,
-                      height: 100,
+                    image: CircleAvatar(
+                      radius: 50,
+                      backgroundImage: AssetImage(
+                        StreamConst.streamImageConst(1),
+                      ),
                     ),
                     onPressed: () {
                       Navigator.pushReplacement(
@@ -60,10 +61,11 @@ class _CategoryScreenState extends State<CategoryScreen> {
                   child: CustomCardWidget1(
                     color: ColorConst.stream,
                     text: StreamConst.stream2,
-                    image: Image.asset(
-                      StreamConst.streamImageConst(2),
-                      width: 100,
-                      height: 100,
+                    image: CircleAvatar(
+                      radius: 50,
+                      backgroundImage: AssetImage(
+                        StreamConst.streamImageConst(2),
+                      ),
                     ),
                     onPressed: () {
                       Navigator.pushReplacement(
@@ -85,10 +87,11 @@ class _CategoryScreenState extends State<CategoryScreen> {
                   child: CustomCardWidget1(
                     color: ColorConst.stream,
                     text: StreamConst.stream3,
-                    image: Image.asset(
-                      StreamConst.streamImageConst(3),
-                      width: 100,
-                      height: 100,
+                    image: CircleAvatar(
+                      radius: 50,
+                      backgroundImage: AssetImage(
+                        StreamConst.streamImageConst(3),
+                      ),
                     ),
                     onPressed: () {
                       Navigator.pushReplacement(
@@ -110,10 +113,11 @@ class _CategoryScreenState extends State<CategoryScreen> {
                   child: CustomCardWidget1(
                     color: ColorConst.stream,
                     text: StreamConst.stream4,
-                    image: Image.asset(
-                      StreamConst.streamImageConst(4),
-                      width: 100,
-                      height: 100,
+                    image: CircleAvatar(
+                      radius: 50,
+                      backgroundImage: AssetImage(
+                        StreamConst.streamImageConst(4),
+                      ),
                     ),
                     onPressed: () {
                       Navigator.pushReplacement(
@@ -135,10 +139,11 @@ class _CategoryScreenState extends State<CategoryScreen> {
                   child: CustomCardWidget1(
                     color: ColorConst.stream,
                     text: StreamConst.stream5,
-                    image: Image.asset(
-                      StreamConst.streamImageConst(5),
-                      width: 100,
-                      height: 100,
+                    image: CircleAvatar(
+                      radius: 50,
+                      backgroundImage: AssetImage(
+                        StreamConst.streamImageConst(5),
+                      ),
                     ),
                     onPressed: () {
                       Navigator.pushReplacement(
@@ -160,10 +165,11 @@ class _CategoryScreenState extends State<CategoryScreen> {
                   child: CustomCardWidget1(
                     color: ColorConst.stream,
                     text: StreamConst.stream6,
-                    image: Image.asset(
-                      StreamConst.streamImageConst(6),
-                      width: 100,
-                      height: 100,
+                    image: CircleAvatar(
+                      radius: 50,
+                      backgroundImage: AssetImage(
+                        StreamConst.streamImageConst(6),
+                      ),
                     ),
                     onPressed: () {
                       Navigator.pushReplacement(
@@ -185,10 +191,11 @@ class _CategoryScreenState extends State<CategoryScreen> {
                   child: CustomCardWidget1(
                     color: ColorConst.stream,
                     text: StreamConst.stream7,
-                    image: Image.asset(
-                      StreamConst.streamImageConst(7),
-                      width: 100,
-                      height: 100,
+                    image: CircleAvatar(
+                      radius: 50,
+                      backgroundImage: AssetImage(
+                        StreamConst.streamImageConst(7),
+                      ),
                     ),
                     onPressed: () {
                       Navigator.pushReplacement(
@@ -210,10 +217,11 @@ class _CategoryScreenState extends State<CategoryScreen> {
                   child: CustomCardWidget1(
                     color: ColorConst.stream,
                     text: StreamConst.stream8,
-                    image: Image.asset(
-                      StreamConst.streamImageConst(8),
-                      width: 100,
-                      height: 100,
+                    image: CircleAvatar(
+                      radius: 50,
+                      backgroundImage: AssetImage(
+                        StreamConst.streamImageConst(8),
+                      ),
                     ),
                     onPressed: () {
                       Navigator.pushReplacement(
@@ -235,10 +243,11 @@ class _CategoryScreenState extends State<CategoryScreen> {
                   child: CustomCardWidget1(
                     color: ColorConst.stream,
                     text: StreamConst.stream9,
-                    image: Image.asset(
-                      StreamConst.streamImageConst(9),
-                      width: 100,
-                      height: 100,
+                    image: CircleAvatar(
+                      radius: 50,
+                      backgroundImage: AssetImage(
+                        StreamConst.streamImageConst(9),
+                      ),
                     ),
                     onPressed: () {
                       Navigator.pushReplacement(
@@ -260,10 +269,11 @@ class _CategoryScreenState extends State<CategoryScreen> {
                   child: CustomCardWidget1(
                     color: ColorConst.stream,
                     text: StreamConst.stream10,
-                    image: Image.asset(
-                      StreamConst.streamImageConst(10),
-                      width: 100,
-                      height: 100,
+                    image: CircleAvatar(
+                      radius: 50,
+                      backgroundImage: AssetImage(
+                        StreamConst.streamImageConst(10),
+                      ),
                     ),
                     onPressed: () {
                       Navigator.pushReplacement(
@@ -273,6 +283,214 @@ class _CategoryScreenState extends State<CategoryScreen> {
                             return Details(
                               firebaseuser: widget.firebaseuser,
                               category: StreamConst.stream10,
+                            );
+                          },
+                        ),
+                      );
+                    },
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: CustomCardWidget1(
+                    color: ColorConst.stream,
+                    text: StreamConst.stream11,
+                    image: CircleAvatar(
+                      radius: 50,
+                      backgroundImage: AssetImage(
+                        StreamConst.streamImageConst(11),
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return Details(
+                              firebaseuser: widget.firebaseuser,
+                              category: StreamConst.stream11,
+                            );
+                          },
+                        ),
+                      );
+                    },
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: CustomCardWidget1(
+                    color: ColorConst.stream,
+                    text: StreamConst.stream12,
+                    image: CircleAvatar(
+                      radius: 50,
+                      backgroundImage: AssetImage(
+                        StreamConst.streamImageConst(12),
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return Details(
+                              firebaseuser: widget.firebaseuser,
+                              category: StreamConst.stream12,
+                            );
+                          },
+                        ),
+                      );
+                    },
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: CustomCardWidget1(
+                    color: ColorConst.stream,
+                    text: StreamConst.stream13,
+                    image: CircleAvatar(
+                      radius: 50,
+                      backgroundImage: AssetImage(
+                        StreamConst.streamImageConst(13),
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return Details(
+                              firebaseuser: widget.firebaseuser,
+                              category: StreamConst.stream13,
+                            );
+                          },
+                        ),
+                      );
+                    },
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: CustomCardWidget1(
+                    color: ColorConst.stream,
+                    text: StreamConst.stream14,
+                    image: CircleAvatar(
+                      radius: 50,
+                      backgroundImage: AssetImage(
+                        StreamConst.streamImageConst(14),
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return Details(
+                              firebaseuser: widget.firebaseuser,
+                              category: StreamConst.stream14,
+                            );
+                          },
+                        ),
+                      );
+                    },
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: CustomCardWidget1(
+                    color: ColorConst.stream,
+                    text: StreamConst.stream15,
+                    image: CircleAvatar(
+                      radius: 50,
+                      backgroundImage: AssetImage(
+                        StreamConst.streamImageConst(15),
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return Details(
+                              firebaseuser: widget.firebaseuser,
+                              category: StreamConst.stream15,
+                            );
+                          },
+                        ),
+                      );
+                    },
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: CustomCardWidget1(
+                    color: ColorConst.stream,
+                    text: StreamConst.stream16,
+                    image: CircleAvatar(
+                      radius: 50,
+                      backgroundImage: AssetImage(
+                        StreamConst.streamImageConst(16),
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return Details(
+                              firebaseuser: widget.firebaseuser,
+                              category: StreamConst.stream16,
+                            );
+                          },
+                        ),
+                      );
+                    },
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: CustomCardWidget1(
+                    color: ColorConst.stream,
+                    text: StreamConst.stream17,
+                    image: CircleAvatar(
+                      radius: 50,
+                      backgroundImage: AssetImage(
+                        StreamConst.streamImageConst(17),
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return Details(
+                              firebaseuser: widget.firebaseuser,
+                              category: StreamConst.stream17,
+                            );
+                          },
+                        ),
+                      );
+                    },
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: CustomCardWidget1(
+                    color: ColorConst.stream,
+                    text: StreamConst.stream18,
+                    image: CircleAvatar(
+                      radius: 50,
+                      backgroundImage: AssetImage(
+                        StreamConst.streamImageConst(18),
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return Details(
+                              firebaseuser: widget.firebaseuser,
+                              category: StreamConst.stream18,
                             );
                           },
                         ),
