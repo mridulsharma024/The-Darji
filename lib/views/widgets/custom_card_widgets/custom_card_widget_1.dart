@@ -16,7 +16,7 @@ class CustomCardWidget1 extends StatelessWidget {
   }) : super(key: key);
   final Color color;
   final String text;
-  final Image image;
+  final CircleAvatar image;
   final void Function()? onPressed;
   double _getHeight(BuildContext context) {
     return MediaQuery.of(context).size.height * 0.0118;

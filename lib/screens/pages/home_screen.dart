@@ -1,6 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:darji/screens/categories/casual_wear_list.dart';
+import 'package:darji/screens/categories/ethnic_wear_list.dart';
+import 'package:darji/screens/categories/western_wear_list.dart';
+import 'package:darji/screens/pages/products_screen.dart';
 import 'package:darji/screens/pages/welcome_screen.dart';
+import 'package:darji/views/widgets/category_filter.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -9,6 +14,9 @@ import '../../auth/auth_provider.dart';
 import '../../const/color_const.dart';
 import '../../models/form_model.dart';
 import '../../views/widgets/custom_appBar.dart';
+import '../categories/formal_wear_list.dart';
+import '../product Details/product_details.dart';
+import 'category_list.dart';
 import 'category_screen.dart';
 
 String? name = ' ';
@@ -60,6 +68,20 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
+  void navigateto({required BuildContext context, required String cat}) {
+    // Navigator.pop(context);
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) {
+          return ProductsScreen(
+            category: cat,
+          );
+        },
+      ),
+    );
+  }
+
   @override
   void initState() {
     // TODO: implement initState
@@ -85,10 +107,7 @@ class _HomeScreenState extends State<HomeScreen> {
     double displayWidth = MediaQuery.of(context).size.width;
     Stream<QuerySnapshot> fetchStream() {
       Stream<QuerySnapshot> stream;
-      stream = FirebaseFirestore.instance
-          .collection("product")
-          .where("category", isEqualTo: "Formals")
-          .snapshots();
+      stream = FirebaseFirestore.instance.collection("product").snapshots();
       return stream;
     }
 
@@ -116,6 +135,169 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(left: 3),
+                  child: Text(
+                    "CATEGORIES",
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const CategoryList()),
+                    );
+                  },
+                  child: Row(
+                    children: [
+                      Text("See All"),
+                      Icon(
+                        Icons.arrow_forward_ios,
+                        size: 10,
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(6.0),
+            child: Container(
+              width: 90,
+              height: 90,
+              child: ListView(
+                // shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => FormalWearList()),
+                      );
+                    },
+                    child: Container(
+                      width: 100,
+
+                      // height: 0,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          CircleAvatar(
+                            radius: 30,
+                            backgroundImage:
+                                AssetImage('assets/images/im13.jpeg'),
+                          ),
+                          // Image.asset(
+                          //   'assets/images/im1.jpeg',
+                          //   // height: 5,
+                          //   // fit: BoxFit.cover,
+                          // ),
+                          Text("Formal Wear")
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 40,
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => EthnicWearList()),
+                      );
+                      // navigateto(context: context, cat: "Coat");
+                    },
+                    child: Container(
+                      width: 100,
+                      //  height: 50,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          CircleAvatar(
+                            radius: 30,
+                            backgroundImage:
+                                AssetImage('assets/images/im5.jpeg'),
+                          ),
+                          Text("Ethnic Wear")
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 40,
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => WesternWearList()),
+                      );
+                    },
+                    child: Container(
+                      width: 100,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          CircleAvatar(
+                            radius: 30,
+                            backgroundImage:
+                                AssetImage('assets/images/im9.jpeg'),
+                          ),
+                          Text("Western Wear")
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 40,
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => CasualWearList()),
+                      );
+                    },
+                    child: Container(
+                      width: 100,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          CircleAvatar(
+                            radius: 30,
+                            backgroundImage:
+                                AssetImage('assets/images/im1.jpeg'),
+                          ),
+                          Text("Casual Wear")
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 40,
+                  ),
+                ],
+              ),
+            ),
+          ),
+          //filter(context),
+          Padding(
             padding: const EdgeInsets.all(15.0),
             child: Text(
               "RECOMMENDED COLLECTIONS",
@@ -142,62 +324,88 @@ class _HomeScreenState extends State<HomeScreen> {
                           crossAxisCount: 2,
                           childAspectRatio: 0.7,
                           crossAxisSpacing: 1),
-                      itemCount: datasnapshot.docs.length,
+                      itemCount: datasnapshot.docs.length > 6
+                          ? 6
+                          : datasnapshot.docs.length,
                       itemBuilder: (context, index) {
                         FormModel formmodel = FormModel.fromMap(
                             datasnapshot.docs[index].data()
                                 as Map<String, dynamic>);
                         //print(index.toString());
                         return Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            decoration: BoxDecoration(
-                                color: ColorConst.stream,
-                                borderRadius: BorderRadius.circular(10)),
-                            padding: EdgeInsets.symmetric(
-                                vertical: 15.0, horizontal: 15),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                GestureDetector(
-                                  onTap: () {
-                                    // Navigator.push(context,
-                                    //     MaterialPageRoute(builder: (context) {
-                                    //       return ProductPage();
-                                    //     }));
+                          padding: EdgeInsets.all(10.0),
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) {
+                                    return ProductDetails(
+                                      firebaseuser: user!,
+                                      formmodel: formmodel,
+                                    );
                                   },
-                                  child: Container(
-                                    height: 160.0,
-                                    width: 140.0,
+                                ),
+                              );
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  color: ColorConst.stream1,
+                                  borderRadius: BorderRadius.circular(10)),
+                              // padding: EdgeInsets.symmetric(
+                              //     vertical: 15.0, horizontal: 15),
+                              child: Column(
+                                //mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Container(
+                                    height: 170.0,
+                                    width: double.infinity,
                                     decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10),
                                         image: DecorationImage(
                                             fit: BoxFit.cover,
                                             image: NetworkImage(
                                               formmodel.profilepic.toString(),
                                             ))),
                                   ),
-                                ),
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.symmetric(vertical: 8.0),
-                                  child: Text(
-                                    formmodel.productName.toString(),
-                                    style: TextStyle(
-                                        fontSize: 16.0,
-                                        fontWeight: FontWeight.bold),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        vertical: 5.0),
+                                    child: FittedBox(
+                                      child: Text(
+                                        formmodel.productName.toString(),
+                                        style: TextStyle(
+                                            fontSize: 20.0,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    ),
                                   ),
-                                ),
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.symmetric(vertical: 3.0),
-                                  child: Text(
-                                    formmodel.price.toString(),
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 20.0),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        vertical: 7.0),
+                                    child: Text(
+                                      formmodel.location.toString(),
+                                      maxLines: 2,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                        fontSize: 15.0,
+                                        fontStyle: FontStyle.italic,
+                                      ),
+                                    ),
                                   ),
-                                ),
-                              ],
+                                  // Padding(
+                                  //   padding: const EdgeInsets.symmetric(
+                                  //       vertical: 3.0),
+                                  //   child: Text(
+                                  //     "Rs " + formmodel.price.toString(),
+                                  //     style: TextStyle(
+                                  //         color: Colors.green,
+                                  //         fontWeight: FontWeight.bold,
+                                  //         fontSize: 15.0),
+                                  //   ),
+                                  // ),
+                                ],
+                              ),
                             ),
                           ),
                         );
@@ -233,223 +441,6 @@ class _HomeScreenState extends State<HomeScreen> {
               }
             },
           ),
-          // GridView.builder(
-          //   padding: EdgeInsets.only(top: 15.0),
-          //   shrinkWrap: true,
-          //   physics: NeverScrollableScrollPhysics(),
-          //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          //       crossAxisCount: 2, childAspectRatio: 0.7, crossAxisSpacing: 1),
-          //   itemBuilder: (context, index) {
-          //     // FormModel formmodel = FormModel.fromMap(
-          //     //     datasnapshot.docs[index].data()
-          //     //     as Map<String, dynamic>);
-          //     return Padding(
-          //       padding: const EdgeInsets.all(8.0),
-          //       child: Container(
-          //         decoration: BoxDecoration(
-          //             color: ColorConst.stream,
-          //             borderRadius: BorderRadius.circular(10)),
-          //         padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 15),
-          //         child: Column(
-          //           mainAxisAlignment: MainAxisAlignment.start,
-          //           children: [
-          //             GestureDetector(
-          //               onTap: () {
-          //                 // Navigator.push(context,
-          //                 //     MaterialPageRoute(builder: (context) {
-          //                 //       return ProductPage();
-          //                 //     }));
-          //               },
-          //               child: Container(
-          //                   height: 160.0,
-          //                   width: 140.0,
-          //                   child: Image.asset(
-          //                     "assets/images/img1.png",
-          //                     height: 100,
-          //                     fit: BoxFit.cover,
-          //                   )),
-          //             ),
-          //             Padding(
-          //               padding: const EdgeInsets.symmetric(vertical: 8.0),
-          //               child: Text(
-          //                 "Kurtas  ",
-          //                 style: TextStyle(
-          //                     fontSize: 16.0, fontWeight: FontWeight.bold),
-          //               ),
-          //             ),
-          //             Padding(
-          //               padding: const EdgeInsets.symmetric(vertical: 3.0),
-          //               child: Text(
-          //                 "\$ 52.22",
-          //                 style: TextStyle(
-          //                     fontWeight: FontWeight.bold, fontSize: 20.0),
-          //               ),
-          //             ),
-          //           ],
-          //         ),
-          //       ),
-          //     );
-          //   },
-          //   // children: [
-          //   //   Padding(
-          //   //     padding: const EdgeInsets.all(8.0),
-          //   //     child: Container(
-          //   //       decoration: BoxDecoration(
-          //   //           color: ColorConst.stream,
-          //   //           borderRadius: BorderRadius.circular(10)),
-          //   //       padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 15),
-          //   //       child: Column(
-          //   //         mainAxisAlignment: MainAxisAlignment.start,
-          //   //         children: [
-          //   //           GestureDetector(
-          //   //             onTap: () {
-          //   //               // Navigator.push(context,
-          //   //               //     MaterialPageRoute(builder: (context) {
-          //   //               //       return ProductPage();
-          //   //               //     }));
-          //   //             },
-          //   //             child: Container(
-          //   //                 height: 160.0,
-          //   //                 width: 140.0,
-          //   //                 child: Image.asset(
-          //   //                   "assets/images/img1.png",
-          //   //                   height: 100,
-          //   //                   fit: BoxFit.cover,
-          //   //                 )),
-          //   //           ),
-          //   //           Padding(
-          //   //             padding: const EdgeInsets.symmetric(vertical: 8.0),
-          //   //             child: Text(
-          //   //               "Kurtas  ",
-          //   //               style: TextStyle(
-          //   //                   fontSize: 16.0, fontWeight: FontWeight.bold),
-          //   //             ),
-          //   //           ),
-          //   //           Padding(
-          //   //             padding: const EdgeInsets.symmetric(vertical: 3.0),
-          //   //             child: Text(
-          //   //               "\$ 52.22",
-          //   //               style: TextStyle(
-          //   //                   fontWeight: FontWeight.bold, fontSize: 20.0),
-          //   //             ),
-          //   //           ),
-          //   //         ],
-          //   //       ),
-          //   //     ),
-          //   //   ),
-          //   //   Padding(
-          //   //     padding: const EdgeInsets.all(8.0),
-          //   //     child: Container(
-          //   //       decoration: BoxDecoration(
-          //   //           color: ColorConst.stream,
-          //   //           borderRadius: BorderRadius.circular(10)),
-          //   //       padding: EdgeInsets.symmetric(vertical: 15.0),
-          //   //       child: Column(
-          //   //         mainAxisAlignment: MainAxisAlignment.start,
-          //   //         children: [
-          //   //           Container(
-          //   //               height: 160.0,
-          //   //               width: 140.0,
-          //   //               child: Image.asset(
-          //   //                 "assets/images/img2.png",
-          //   //                 height: 100,
-          //   //                 fit: BoxFit.cover,
-          //   //               )),
-          //   //           Padding(
-          //   //             padding: const EdgeInsets.symmetric(vertical: 8.0),
-          //   //             child: Text(
-          //   //               "Three Piece suit",
-          //   //               style: TextStyle(fontSize: 16.0),
-          //   //             ),
-          //   //           ),
-          //   //           Padding(
-          //   //             padding: const EdgeInsets.symmetric(vertical: 3.0),
-          //   //             child: Text(
-          //   //               "\$ 52.22",
-          //   //               style: TextStyle(
-          //   //                   fontWeight: FontWeight.bold, fontSize: 20.0),
-          //   //             ),
-          //   //           ),
-          //   //         ],
-          //   //       ),
-          //   //     ),
-          //   //   ),
-          //   //   Padding(
-          //   //     padding: const EdgeInsets.all(8.0),
-          //   //     child: Container(
-          //   //       decoration: BoxDecoration(
-          //   //           color: ColorConst.stream,
-          //   //           borderRadius: BorderRadius.circular(10)),
-          //   //       padding: EdgeInsets.symmetric(vertical: 15.0),
-          //   //       child: Column(
-          //   //         mainAxisAlignment: MainAxisAlignment.start,
-          //   //         children: [
-          //   //           Container(
-          //   //               height: 160.0,
-          //   //               width: 140.0,
-          //   //               child: Image.asset(
-          //   //                 "assets/images/img3.png",
-          //   //                 height: 100,
-          //   //                 fit: BoxFit.cover,
-          //   //               )),
-          //   //           Padding(
-          //   //             padding: const EdgeInsets.symmetric(vertical: 8.0),
-          //   //             child: Text(
-          //   //               "Coat",
-          //   //               style: TextStyle(fontSize: 16.0),
-          //   //             ),
-          //   //           ),
-          //   //           Padding(
-          //   //             padding: const EdgeInsets.symmetric(vertical: 3.0),
-          //   //             child: Text(
-          //   //               "\$ 52.22",
-          //   //               style: TextStyle(
-          //   //                   fontWeight: FontWeight.bold, fontSize: 20.0),
-          //   //             ),
-          //   //           ),
-          //   //         ],
-          //   //       ),
-          //   //     ),
-          //   //   ),
-          //   //   Padding(
-          //   //     padding: const EdgeInsets.all(8.0),
-          //   //     child: Container(
-          //   //       decoration: BoxDecoration(
-          //   //           color: ColorConst.stream,
-          //   //           borderRadius: BorderRadius.circular(10)),
-          //   //       padding: EdgeInsets.symmetric(vertical: 15.0),
-          //   //       child: Column(
-          //   //         mainAxisAlignment: MainAxisAlignment.start,
-          //   //         children: [
-          //   //           Container(
-          //   //               height: 160.0,
-          //   //               width: 140.0,
-          //   //               child: Image.asset(
-          //   //                 "assets/images/img4.png",
-          //   //                 height: 100,
-          //   //                 fit: BoxFit.cover,
-          //   //               )),
-          //   //           Padding(
-          //   //             padding: const EdgeInsets.symmetric(vertical: 8.0),
-          //   //             child: Text(
-          //   //               "Blazer",
-          //   //               style: TextStyle(fontSize: 16.0),
-          //   //             ),
-          //   //           ),
-          //   //           Padding(
-          //   //             padding: const EdgeInsets.symmetric(vertical: 3.0),
-          //   //             child: Text(
-          //   //               "\$ 52.22",
-          //   //               style: TextStyle(
-          //   //                   fontWeight: FontWeight.bold, fontSize: 20.0),
-          //   //             ),
-          //   //           ),
-          //   //         ],
-          //   //       ),
-          //   //     ),
-          //   //   ),
-          //   // ],
-          // )
         ],
       ),
       floatingActionButtonLocation:
